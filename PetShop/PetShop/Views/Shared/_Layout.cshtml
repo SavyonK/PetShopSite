@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Styles/external.css" rel="stylesheet" />
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+
+        <div>
+            <br />
+            <br />
+            <a asp-controller="Home" asp-action="Index">Home Page</a> |
+            <a asp-controller="Catalog" asp-action="ShowCatalog">Catalog</a> |
+            <a asp-controller="Admin" asp-action="Index">Admin Screen</a>
+
+
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                window.onload = function () {
+                alert("@ViewBag.Message");
+                };
+                </script>
+            }
+        </div>
+
+    </div>
+</body>
+</html>

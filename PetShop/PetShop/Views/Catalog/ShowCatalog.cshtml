@@ -1,0 +1,33 @@
+﻿@model PetShop.Models.Animal
+
+@{
+    ViewBag.Title = "ShowCatalog";
+    <link href="~/Styles/external.css" rel="stylesheet" />
+}
+
+<h1>Animal Catalog:</h1>
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Description</th>
+
+
+        </tr>
+
+        @foreach (var animal in ViewBag.AnimalList)
+        {
+            <tr>
+                <th><img src="~/Images/@animal.ProfileImage" width="120" height="120" asp-append-version="true"></th>
+                <th><a asp-controller="Catalog" asp-action="ShowAnimal" asp-route-id="@animal.AnimalID">@animal.Name</a></th>
+                <th>@animal.Age</th>
+                <th>@animal.Description</th>
+            </tr>
+        }
+    </table>
+
+</div>
+

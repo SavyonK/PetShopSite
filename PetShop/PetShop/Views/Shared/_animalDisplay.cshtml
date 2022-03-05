@@ -1,0 +1,21 @@
+﻿@model PetShop.ViewModels.AnimalDisplayViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+    <div class="display-animal">
+
+        <img src="~/Images/@Model.ProfileImage" asp-append-version="true">
+
+        <h2>@Model.Name</h2>
+        <cite>@Model.Description</cite>
+        <br />
+
+        @Html.LabelFor(a => a.AnimalID) @Model.AnimalID
+        <br />
+
+        @Html.LabelFor(a => a.Age) @Model.Age
+        <br />
+
+        @Html.LabelFor(a => a.Category) @Model.Category
+
+    </div>

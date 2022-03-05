@@ -1,0 +1,14 @@
+﻿@model List<PetShop.ViewModels.AnimalDisplayViewModel>
+@*this is Home/Index*@
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1>@ViewBag.HomeTitle</h1>
+@foreach (var animal in Model)
+{
+    Html.RenderPartial("_animalDisplay", animal); 
+
+}
+

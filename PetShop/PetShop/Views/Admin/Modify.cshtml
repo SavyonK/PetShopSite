@@ -1,0 +1,79 @@
+﻿@model PetShop.ViewModels.AnimalFormViewModel
+@{
+    ViewBag.Title = "Modify";
+}
+
+<h1>Modify Animal:</h1>
+<div>
+
+
+    <form asp-action="Modify" asp-controller="Admin" method="post" enctype="multipart/form-data">
+
+        @Html.HiddenFor(a => a.AnimalID)
+
+        <table style="width:500px">
+
+            <tr>
+                <th> <label asp-for="Name"></label> </th>
+                <th>
+                    <div class="form-group">
+                        <input type="text" asp-for="Name"  />
+                        <span asp-validation-for="Name"></span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th> <label asp-for="Age"></label> </th>
+
+                <th>
+                    <div class="form-group">
+                        <input type="number" asp-for="Age"maxlength="3"  />
+                        <span asp-validation-for="Age"></span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th> <label asp-for="Description"></label> </th>
+
+                <th>
+                    <div class="form-group">
+                        <textarea rows="2" asp-for="Description" ></textarea>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th> <label asp-for="CategoryID"></label> </th>
+
+                <th>
+                    <div class="form-group">
+                        <select asp-for="CategoryID" asp-items="ViewBag.Categories" ></select>
+                        <span asp-validation-for="CategoryID"></span>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th> <label asp-for="ProfileImage"></label> </th>
+
+                <th>
+                    <div class="form-control">
+                        <input asp-for="ProfileImage" />
+                        <span asp-validation-for="ProfileImage"></span>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <button type="submit">Submit</button>
+
+                </th>
+            </tr>
+
+
+        </table>
+    </form>
+</div>
+<br />
+<br />
+<div><a asp-controller="Admin" asp-action="Delete" asp-route-id="@ViewBag.AnimalID" />Remove Animal</div>

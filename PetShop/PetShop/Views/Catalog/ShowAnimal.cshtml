@@ -1,0 +1,65 @@
+﻿@model PetShop.Models.Comments
+@{
+    ViewBag.Title = "ShowAnimal";
+}
+
+
+<div>
+    <h1>Selected Animal: @ViewBag.SelectedAnimal.Name</h1>
+    <div class="display-animal">
+
+        <img src="~/Images/@ViewBag.SelectedAnimal.ProfileImage" width="120" height="120" asp-append-version="true">
+        <br />
+
+        <cite>@ViewBag.SelectedAnimal.Description</cite>
+        <br />
+
+        ID: @ViewBag.SelectedAnimal.AnimalID
+        <br />
+
+        Age: @ViewBag.SelectedAnimal.Age
+        <br />
+
+        Category: @ViewBag.SelectedAnimal.Category
+
+    </div>
+
+    Comments:
+    <br />
+    @if (ViewBag.CommentsList.Count == 0)
+    {
+        <text>No comments yet.</text>
+    }
+    @for (int i = 0; i < ViewBag.CommentsList.Count; i++)
+    {
+        @(i+1) <text>. </text>
+        @ViewBag.CommentsList[i].Comment
+        <br />
+    }
+    <br />
+    <br />
+    <br />
+
+
+    <form asp-action="ShowAnimal" asp-controller="Catalog" method="post" id="newComment">
+        <fieldset>
+            <legend>Add your comment:</legend>
+            <div class="form-group">
+                <textarea rows="2" asp-for="Comment" autofocus></textarea>
+                <span asp-validation-for="Comment"></span>
+            </div>
+
+            <div class="form-group">
+
+                <input type="hidden" asp-for="AnimalID" accesskey="AnimalID" value="@ViewBag.AnimalID" />
+
+            </div>
+            <button type="submit">Submit</button>
+
+
+        </fieldset>
+    </form>
+</div>
+<div>
+    <a asp-action="ShowCatalog">Back to List</a>
+</div>

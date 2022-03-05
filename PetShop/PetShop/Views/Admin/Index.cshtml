@@ -1,0 +1,39 @@
+﻿@*this is Admin/Index*@
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1>Modify Menu:</h1>
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Description</th>
+
+            <th>Modify</th>
+        </tr>
+
+        @foreach (var animal in ViewBag.AnimalList)
+        {
+            <tr>
+                <th><img src="~/Images/@animal.ProfileImage" class="rounded-circle" width="80" height="80" asp-append-version="true"></th>
+                <th>@animal.Name</th>
+                <th>@animal.Age</th>
+                <th>@animal.Description</th>
+                <th><a asp-controller="Admin" asp-action="Modify" asp-route-id="@animal.AnimalID" />Modify</th>
+
+            </tr>
+        }
+    </table>
+    <div>
+        <br />
+        <br />
+        <br />
+        <a asp-controller="Admin" asp-action="Add">Add Animal</a>
+
+    </div>
+</div>
