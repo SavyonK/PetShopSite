@@ -1,2 +1,2 @@
 # PetShopSite
-ASP.NET Core Web
+ASP.NET Core MVC Web
